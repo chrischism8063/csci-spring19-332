@@ -5,6 +5,24 @@ nav {
 
 }
 
+header a:visited{
+  color: #333;
+}
+
+.home_img{
+  width: 345px;
+  height: auto;
+}
+
+.home_photo_sim{
+  width: 45%;
+  background-color: white;
+  box-shadow: 1;
+  height:359px;
+  border-width: 5px;
+  border: #333;
+}
+
 ul {
   margin: 0;
   padding: 0;
@@ -92,8 +110,6 @@ section ul li:nth(3n+0){
 .home li a:hover {
   background-color: lightsalmon;
 }
-
-
 
 footer {
   top: 95%;
