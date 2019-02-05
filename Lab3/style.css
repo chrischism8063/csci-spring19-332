@@ -27,13 +27,13 @@ li a {
 
 /* Change the link color to #111 (black) on hover */
 li a:hover {
-  background-color: rgb(113, 224, 228);
+  background-color: rgb(66, 146, 244);
 }
 
 body {
-/*Reference of background image*/
-  background-image: url(background7.jpg);
-  background-color: rgb(113, 224, 228);
+/*Reference: https://alpha.wallhaven.cc/wallpaper/120534*/
+  background-image: url(img/background.png);
+  background-color: rgb(66, 146, 244);
   background-repeat: none;
   background-blend-mode: screen;
   padding: 5px;
@@ -53,10 +53,8 @@ header {
 }
 
 section{
-  /*background-color: darkviolet;*/
   padding: 10px;
-  outline-style: groove;
-  outline-color:  #333;
+
 }
 
 section ul{
@@ -95,37 +93,7 @@ section ul li:nth(3n+0){
   background-color: lightsalmon;
 }
 
-.cities ul{
-  display: box;
-}
-.cities ul li{
-  background-color: rebeccapurple;
-  border-bottom: solid; 
-  padding: 0px;
-}
 
-.family_tree{
-  background-color: azure;
-}
-
-.family_tree ol{
-  display: block;
-  overflow: hidden;
-}
-
-.family_tree ol li{
-  background-color: red;
-}
-
-.family_tree ol li ol {
-  display: list-item;
-  overflow: hidden;
-  background-color: orange;
-}
-
-.family_tree ol li ol li{
-  background-color: blue;
-}
 
 footer {
   top: 95%;
@@ -144,19 +112,9 @@ footer {
   padding: 15px;
 }
 
-section table{
-  color: white;
-  padding: 10px;
-}
-section table, th, tr, td{
-  border-style: inset;
-  padding: 5px;
-}
-
-section table th{
-  background-color: coral;
-}
-
-section table td{
-  background-color: darkolivegreen;
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
 }
