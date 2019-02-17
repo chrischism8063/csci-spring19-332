@@ -2,57 +2,6 @@ nav {
   display: block;
   padding: 0%;
   margin: 0%;
-
-}
-
-header a:visited{
-  color: #333;
-}
-
-.home_img{
-  width: 90%;
-  height: auto;
-  margin-top: 1%;
-}
-
-.home_photo_sim{
-  width: 45%;
-  background-color: #333;
-  box-shadow: 1;
-  height:392px;
-  border-width: 5px;
-  border: #333;
-  overflow: hidden;
-  margin: 0%;
-  padding: 0%;
-}
-
-.photo_bottom{
-  padding: 0%;
-  background-color: white;
-  width: 90%;
-  text-align: center;
-  height: 25px;
-}
-
-.home_left{
-  text-align: left;
-  background-color: #333;
-  width: 45%;
-  padding: 0%;
-  margin: 0%;
-  color: white;
-}
-.home_left > p{
-  padding: 10px;
-}
-
-.home_left a{
-  color: rgb(66, 146, 244);
-}
-
-.home_left a:hover{
-  color: darkmagenta;
 }
 
 ul {
@@ -64,7 +13,7 @@ ul {
 
 li {
   float: left;
-    list-style-type: none;
+  list-style-type: none;
 }
 
 li a {
@@ -77,25 +26,18 @@ li a {
 
 /* Change the link color to #111 (black) on hover */
 li a:hover {
-  background-color: rgb(66, 146, 244);
+  background-color: rgb(113, 224, 228);
 }
 
 body {
-/*Reference: https://alpha.wallhaven.cc/wallpaper/120534*/
-  background-image: url(img/background.jpg);
-  background-color: rgb(66, 146, 244);
+/*Reference of background image*/
+  background-image: url(background7.jpg);
+  background-color: rgb(113, 224, 228);
   background-repeat: none;
   background-blend-mode: screen;
   padding: 5px;
-  margin-left: 0%;
-  margin-right: 0%;
   margin-bottom: 100px;
   clear: both;
-}
-
-header {
-  text-align: center;
-  font-size: 55px;
 }
 
 .active {
@@ -103,8 +45,10 @@ header {
 }
 
 section{
+  /*background-color: darkviolet;*/
   padding: 10px;
-
+  outline-style: groove;
+  outline-color:  #333;
 }
 
 section ul{
@@ -143,6 +87,38 @@ section ul li:nth(3n+0){
   background-color: lightsalmon;
 }
 
+.cities ul{
+  display: box;
+}
+.cities ul li{
+  background-color: rebeccapurple;
+  border-bottom: solid; 
+  padding: 0px;
+}
+
+.family_tree{
+  background-color: azure;
+}
+
+.family_tree ol{
+  display: block;
+  overflow: hidden;
+}
+
+.family_tree ol li{
+  background-color: red;
+}
+
+.family_tree ol li ol {
+  display: list-item;
+  overflow: hidden;
+  background-color: orange;
+}
+
+.family_tree ol li ol li{
+  background-color: blue;
+}
+
 footer {
   top: 95%;
   text-align:center;
@@ -160,9 +136,19 @@ footer {
   padding: 15px;
 }
 
-.center {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  width: 50%;
+section table{
+  color: white;
+  padding: 10px;
+}
+section table, th, tr, td{
+  border-style: inset;
+  padding: 5px;
+}
+
+section table th{
+  background-color: coral;
+}
+
+section table td{
+  background-color: darkolivegreen;
 }
