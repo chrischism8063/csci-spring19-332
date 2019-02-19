@@ -11,27 +11,32 @@
     <title>Lab 3->HomePage</title>
 </head>
 <body>
+    <audio controls hidden loop autoplay>
+        <source src="music.mp3" type="audio/mp3">
+        Your browser does not support the audio element.
+    </audio>
     <header>
+        <h1 class="center">        
             <a href="index.html">Chris' Website</a>
+        </h1>
+        <!--Referenced structure from w3schools for navigation bar-->
+        <!--https://www.w3schools.com/css/css_navbar.asp-->
+        <nav>
+            <ul>
+                <li><a class="active">Home</a></li>
+                <li><a href="Lab1/index.html">Lab 1</a></li>
+                <li><a href="Lab2/index.html">Lab 2</a></li>
+                <li><a href="Lab3/index.html">Lab 3</a></li>
+                <li><a href="Lab4/index.html">Lab 4</a></li>
+                <li><a href="Lab5/index.html">Lab 5</a></li>
+                <li><a href="Lab6/index.html">Lab 6</a></li>
+                <li><a href="Lab7/index.html">Lab 7</a></li>
+                <li><a href="Lab8/index.html">Lab 8</a></li>
+            </ul>
+        </nav>
     </header>
-    <!--Referenced structure from w3schools for navigation bar-->
-    <!--https://www.w3schools.com/css/css_navbar.asp-->
-    <nav>
-        <ul>
-            <li><a class="active">Home</a></li>
-            <li><a href="Lab1/index.html">Lab 1</a></li>
-            <li><a href="Lab2/index.html">Lab 2</a></li>
-            <li><a href="Lab3/index.html">Lab 3</a></li>
-            <li><a href="Lab4/index.html">Lab 4</a></li>
-            <li><a href="Lab5/index.html">Lab 5</a></li>
-            <li><a href="Lab6/index.html">Lab 6</a></li>
-            <li><a href="Lab7/index.html">Lab 7</a></li>
-            <li><a href="Lab8/index.html">Lab 8</a></li>
-        </ul>
-    </nav>
     <hr />
     <section style="display:flexbox"> 
-
         <section style="float: right;" class="center home_photo_sim">
             <img src="img/homepage.jpg" alt="Boeing 787-10" class="home_img">
             <section class="photo_bottom">
@@ -54,10 +59,6 @@
             </p>
         </section>
 
-            <audio controls autoplay>
-                <source src="music.mp3" type="audio/mp3">
-                Your browser does not support the audio element.
-            </audio>
     </section>
     <footer>
         Chris Chism | CSCI 332 Spring 2019
