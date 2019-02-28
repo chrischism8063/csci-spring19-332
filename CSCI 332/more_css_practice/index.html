@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="stylesheet.css">
+    <style>
+        tr, td{
+            border: firebrick solid 2px;
+        }
+        table{
+            border: black dashed 4px;
+            margin: 10px;
+            padding: 10px;
+            width: 100%;
+        }
+        tr:nth-child(even){
+            background-color: cornflowerblue;
+            color: white;
+        }
+        table#Special tr:nth-child(even){
+            background-color: tomato;
+            color: green;
+        }
+        .x{
+            color: deeppink;
+        }
+    </style>
+</head>
+<body>
+    
+    <header>Practice Site</header>
+    <ul>
+        <li>File
+            <ul>
+                <li><a href="">New File</a></li>
+                <li><a href="">Open File</a></li>
+                <li><a href="">Open</a></li>
+            </ul>
+        </li>
+        <li>Edit</li>
+        <li>Selection</li>
+    </ul>
+    <p style="position: absolute; top:200px; left:200px;">Building websites can be interesting <span class="x">and Fun!!</span></p>
+
+    <div>
+        <h1>My Journal</h1>
+        <table border="1" style="border-collapse: collapse;">
+            <tr>
+                <td>1</td>
+                <td>2</td>
+                <td>3</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>5</td>
+                <td>6</td>
+            </tr>
+        </table>
+        <table id="Special">
+            <th>Fruit</th>
+            <th>Price</th>
+            <tr>
+                <td>Apple</td>
+                <td>.25</td>
+            </tr>
+            <tr>
+                <td>Orange </td>
+                <td>.5</td>
+            </tr>
+            <tr>
+                <td>Banana</td>
+                <td>1</td>
+            </tr>
+            <tr>
+                <td>Grape</td>
+                <td>2.5</td>
+            </tr>
+        </table>
+    </div>
+    <form action="">
+        <div>
+            <label for="">Create New Password:</label>
+            <input type="password hidden" name="" id="" placeholder="new password here">
+            <p class="tooltip_hidden">Password neds to be at least 8 leters long.</p>
+        </div>
+        
+    </form>
+</body>
+</html>

@@ -1,0 +1,59 @@
+
+body{
+    margin: 0%;
+
+}
+header{
+    font-size: 36px;
+    text-align: center;
+}
+div{
+    margin-left: 10px;
+    margin-right: 10px;
+}
+.tooltip_hidden{
+    display: none;
+    background-color: lightblue;
+    padding: 10px;
+    border-left-style: groove;
+    border-color: blueviolet;
+}
+ul{
+    display: block;
+    background-color: #333;
+    padding: 10px;
+    padding-left: 0%;
+}
+li{
+    display: inline;
+    color: white;
+    padding: 10px;
+    margin: 0%;
+    margin-left: 0%;
+}
+li a{
+    text-decoration: none;
+    color: aqua;
+}
+ul li:hover{
+    background-color: black;
+}
+ul li ul{
+    display: none;
+    padding: 0%;
+}
+ul li:hover ul{
+    display: block;
+    position: absolute;
+    left: 0x;
+}
+li ul li{
+    margin: 0%;
+    text-decoration: none;
+}
+li:hover ul li{
+    display: block;
+}
+div:hover p{
+    display: block;
+}
