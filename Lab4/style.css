@@ -1,0 +1,130 @@
+header h1 > a:visited{
+  color: #333;}
+
+h1 a{
+  text-decoration: none;
+  color: #333;
+}
+
+ul {
+  background-color: #333;
+  display: block;
+  overflow: hidden;
+  padding-left: 0%;}
+
+li {
+  display:inline;
+  list-style-type: none;
+  padding: 10px;
+  margin: 0%;
+  
+}
+
+li a {
+  display: inline;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  padding: 10px;
+  margin: 0%;
+  float: left;
+  left: 0%;
+  font-size: 16px;
+}
+
+/* Change the link color to #111 (black) on hover */
+li a:hover {
+  background-color: rgb(66, 146, 244);
+  color: #333;
+}
+
+ul li ul{
+  display: none;
+}
+
+li:hover ul{
+  display: block;
+  position: absolute;
+  left: 64px;
+  top: 267px;
+  padding: 0%;
+}
+
+li:hover ul li{
+  display: block;
+  padding: 0%;
+
+}
+
+
+body {
+/*Reference: https://alpha.wallhaven.cc/wallpaper/120534*/
+  background-image: url(img/background.jpg);
+  background-color: rgb(66, 146, 244);
+  background-repeat: none;
+  background-blend-mode: screen;
+  padding: 5px;
+  margin-left: 0%;
+  margin-right: 0%;
+  margin-bottom: 100px;
+  clear: both;
+}
+
+/* header {
+  text-align: center;
+  font-size: 55px;
+} */
+
+.active {
+  background-color: black;
+}
+
+footer {
+  top: 95%;
+  text-align:center;
+  color: white;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+  display: block;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 55px;
+  padding: 15px;
+}
+
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
+.prob_3_table{
+  color: white;
+  background: white;
+}
+
+.prob_3_table tr{
+  border: 10px solid orangered;
+
+}
+
+.prob_3_table th{
+  background-color: black;
+  color: white;
+}
+
+.prob_3_table tr{
+  background-color: #ffffff;
+  color: black;
+}
+
+.prob_3_table tr:nth-child(even){
+  background-color: #aeaeae;
+  color: black;
+
+}
