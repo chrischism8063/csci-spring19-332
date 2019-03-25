@@ -1,0 +1,27 @@
+body{
+    background-image: url("back.jpg");
+    background-position: fixed;
+}
+
+.box_example{
+    width: 45%;
+    height: 200px;
+    overflow: hidden;
+    float: right;
+    padding: 10px;
+
+}
+
+.box_example_2{
+    width: 50%;
+    height: 200px;
+    overflow: hidden;
+    float: left;
+    padding: 10px;
+
+}
+
+p{
+    padding: 10px;
+}
+
