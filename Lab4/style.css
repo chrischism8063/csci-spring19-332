@@ -186,14 +186,24 @@ footer {
   color: maroon;
 }
 
-.outer_list{
-  list-style-type: upper-roman;
+.outer_list li{
+  list-style-type: circle;
+  display: block;
+
 }
 
-.middle_list{
-  list-style-type: upper-alpha;
+.middle_list li{
+  list-style-type: square;
+  display: block;
+
 }
 
-.inner_list{
+.inner_list li{
   list-style-type: armenian;
+  display: block;
+
+}
+
+section.car_list{
+  display: block;
 }
