@@ -1,0 +1,60 @@
+body{
+    background-color: darkslategray;
+    color: white;
+}
+
+ul{
+    padding: 10px;
+    display: inline-block;
+}
+
+ul li{
+    list-style-type: none;
+    background-color: darkgrey;
+    overflow: hidden;
+        padding: 10px;
+
+    
+}
+
+ul li a{
+    color: white;
+    display: hidden;
+}
+
+ul.li.a.p{
+    color: red;
+    display: hidden;
+}  
+
+ul li a:hover p{
+    text-decoration: none;
+    display: inline-block;
+    position: absolute;
+    left: 25px;
+    background-color: darkgrey;
+    top: 70px;
+}
+
+ul li a:visited{
+    text-decoration: none;
+}
+
+.task_hidden{
+    display: none;
+}
+
+.task{
+    display: block;
+}
+
+div{
+    background-color: darkturquoise;
+    padding: 10px;
+}
+
+header{
+    background-color: slateblue;
+    padding: 10px;
+    text-align: center;
+}
