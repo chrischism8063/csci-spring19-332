@@ -1,0 +1,36 @@
+ul{
+    padding: 10px;
+    background-color: #909090;
+}
+
+ul li{
+    display: inline;
+    list-style-type: none;
+    padding: 10px;
+}
+
+ul li a{
+    color: blue;
+    text-decoration: none;
+    display: inline;
+    padding: 5px;
+
+}
+
+ul li a:hover{
+    color: white;
+    background-color: #303030;
+}
+
+ul li ul{
+    display: none;
+}
+
+ul li:hover ul{
+    display: block;
+    position: absolute;
+    left: 90px;
+    top: 54px;
+        padding: 10px;
+
+}
