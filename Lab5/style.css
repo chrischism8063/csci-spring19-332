@@ -1,20 +1,22 @@
 body{
     background-color: darkslategray;
     color: white;
+    margin-bottom: 10%;
+    padding: 0%;
+    margin: 0%;
 }
 
 ul{
     padding: 10px;
     display: inline-block;
+
 }
 
 ul li{
     list-style-type: none;
-    background-color: darkgrey;
     overflow: hidden;
-        padding: 10px;
-
-    
+    padding: 10px;   
+    display: block;
 }
 
 ul li a{
@@ -36,6 +38,9 @@ ul li a:hover p{
     top: 70px;
 }
 
+a{
+    text-decoration: none;
+}
 ul li a:visited{
     text-decoration: none;
 }
@@ -49,7 +54,7 @@ ul li a:visited{
 }
 
 div{
-    background-color: darkturquoise;
+    /* background-color: darkturquoise; */
     padding: 10px;
 }
 
@@ -57,4 +62,104 @@ header{
     background-color: slateblue;
     padding: 10px;
     text-align: center;
+    margin: 0%;
+    bottom: 15%;
+}
+
+header ul{
+    font-size: 12px;
+}
+
+.toc{
+    text-align: center;
+    bottom: 10%;
+    margin: 0%;
+    width: 100%;
+    padding: 0;
+    height: 100%;
+    padding-top: 0%;
+}
+
+.toc ul{
+    height: 100%;
+    background-color: pink;
+    /* padding-left: 0%;
+    padding-top: 0%; */
+    margin: 0%;
+
+
+}
+
+.toc ul li{
+    width: 100%;
+    padding: 10px;
+
+}
+
+
+.toc ul li:hover{
+    background-color: orange;
+
+}
+
+
+.toc ul li a{
+    padding: 0%;
+}
+.main{
+    display: flex;
+    margin: 0%;
+    padding: 0%;
+    height: 600px;
+    position: relative;
+}
+
+.left{
+    width: 20%;
+    background-color: red;
+    float: left;
+    padding: 0%;
+}
+
+.center{
+    width: 75%;
+    background-color: blue;
+    float: center;
+    
+}
+
+.right{
+    width: 5%;
+    background-color: purple;
+    float: right;
+
+}
+
+.footer{
+    text-align: center;
+    font-size: 10px;
+    position: fixed;
+    left: 0; 
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    margin: 0%;
+    overflow: hidden;
+    padding: 0%;
+    background-color: greenyellow;
+}
+
+.upper{
+    position: relative;
+    top: 10%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.split{
+    background-color: cadetblue;
+    position: relative;
+    top: 10%;
+    width: 100%
 }
