@@ -9,79 +9,125 @@
     <title>CSCI 332-->Lab 5</title>
 </head>
 <body>
-    <!-- Header -->
-    <header>
-        <!-- <img src="banner.jpg" alt="BANNER" height="200px"> -->
-        <h1>Group 2</h1>
-        <ul>
-            <li>Timia Davis</li>
-            <li>Chris Chism</li>
-        </ul>
-        <h3>Section Two: Creating Ethernet Cables</h3>
-    </header>
-    <a href="../index.html">HOME</a>
-    <div>
-        <dt>Describe the main function of the unshielded twisted pair (UTP) cable.></dt>
-        <dd>The main function of the UTP cable is to allow data to be transferred from a computer to another 
-            computer or to network devices, creating a LAN, most commly utilized in networks in buildings.</dd>
+    <div class="upper">
+        <!-- Header -->
+        <header>
+            <!-- <img src="banner.jpg" alt="BANNER" height="200px"> -->
+            <h1>Group 2</h1>
+            <ul class="group">
+                <li>Timia Davis</li>
+                <li>Chris Chism</li>
+            </ul>
+        </header>
+        <div class="split">
+            <h3>Section Two: Creating Ethernet Cables</h3>
+        </div>
     </div>
-    <div>
-        <dt style="color:red">A picture of cables. This picture should show the two heads of the cable. Describe the order of
-            the lines in the heads, the color code, and how to cross over the cable(ie, which color cable
-            connect to which?).</dt>
-        <img src="" alt="LAN Cables">
-        <p></p>
-    </div>
-    <div>
-        <dt style="color:red">A table that includes the specification of the cable, such as data rate, etc.</dt>
-        <table border="1">
-            <th colspan="2">Performance Results</th>
-            <tr>
-                <th>Data Rate</th>
-                <td>data</td>
-            </tr>
-            <tr>
-                <th>heading</th>
-                <td>data</td>   
-            </tr>
-        </table>
-    </div>
-    <div>
-        <dt>Describe the differences between the UTP cable and other types of cables that can be used in a
-            network. Some of the differences might be data rates, and the networks they are used in.</dt>
-        <dd>There are 4 different categories of physical media consisting of twisted-pair copper wire, 
-            coaxial cable, fiber optics, terrestrial radio channels, and satellite radio channels.</dd>
-        <ul style="display:block">
-            <li>Data Rates:
-                <ul style="display:block">
-                    <li>Twisted cable data rates range from 10Mbps to 10Gps.</li>
-                    <li>Fiber optic cables data rates frange from 51.8 Mbps to 39.8 Mbps.</li>
+    
+    <div class="main">
+        <div class="left">
+            <div class="toc">
+                <ul>
+                    <li>
+                        <a href="../index.html"><i class="fas fa-home"></i>
+                            Home</a>
+                    </li>
+                    <li>
+                        <a href="section_one/index.html">Section One: Introduction
+                        </a>
+                    </li>
+                    <li>
+                        <a href="section_two/index.html">Section Two: Creating Ethernet Cables
+                        </a>
+                    </li>
+                    <li>
+                        <a href="section_three/index.html">Section Three: Installing Samba Server</a>
+                    </li>
+                    <li>
+                        <a href="section_four/index.html">Section Four: Constructing a LAN Using One Switch</h3>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="section_five/index.html">Section Five: Constructing a LAN Using Two Switches
+                        </a>
+                    </li>
+                    <li>
+                        <a href="section_six/index.html">Section Six: Experienment Analysis</a>
+                    </li>
+                    <li>
+                        <a href="section_seven/index.html">Section Seven: Experiement Log</a>
+                    </li>
                 </ul>
-            <li>Cost:
+            </div>
+        </div>
+        <div class="center">
+            <div>
+                <dt>Describe the main function of the unshielded twisted pair (UTP) cable.></dt>
+                <dd>The main function of the UTP cable is to allow data to be transferred from a computer to another 
+                    computer or to network devices, creating a LAN, most commly utilized in networks in buildings.</dd>
+            </div>
+            <div>
+                <dt style="color:red">A picture of cables. This picture should show the two heads of the cable. Describe the order of
+                    the lines in the heads, the color code, and how to cross over the cable(ie, which color cable
+                    connect to which?).</dt>
+                <img src="" alt="LAN Cables">
+                <p></p>
+            </div>
+            <div>
+                <dt style="color:red">A table that includes the specification of the cable, such as data rate, etc.</dt>
+                <table border="1">
+                    <th colspan="2">Performance Results</th>
+                    <tr>
+                        <th>Data Rate</th>
+                        <td>data</td>
+                    </tr>
+                    <tr>
+                        <th>heading</th>
+                        <td>data</td>   
+                    </tr>
+                </table>
+            </div>
+            <div>
+                <dt>Describe the differences between the UTP cable and other types of cables that can be used in a
+                    network. Some of the differences might be data rates, and the networks they are used in.</dt>
+                <dd>There are 4 different categories of physical media consisting of twisted-pair copper wire, 
+                    coaxial cable, fiber optics, terrestrial radio channels, and satellite radio channels.</dd>
                 <ul style="display:block">
-                    <li>Twisted cables are the cheapeast in the category.</li>
-                    <li>Fiber optics themselves are not expensive; the optical devices on the ends are the expensive part of this medium.</li>
+                    <li>Data Rates:
+                        <ul style="display:block">
+                            <li>Twisted cable data rates range from 10Mbps to 10Gps.</li>
+                            <li>Fiber optic cables data rates frange from 51.8 Mbps to 39.8 Mbps.</li>
+                        </ul>
+                    <li>Cost:
+                        <ul style="display:block">
+                            <li>Twisted cables are the cheapeast in the category.</li>
+                            <li>Fiber optics themselves are not expensive; the optical devices on the ends are the expensive part of this medium.</li>
+                        </ul>
+                    </li>
+                    <li>Reliability:
+                        <ul style="display:block">
+                            <li>Twisted cables are the "dominant solution for high-speed LAN networking (Kurose 19).</li>
+                            <li>Fiber optic cables are amazing long distances due to their high emi-resistance.</li>
+                            <li>Terrestrial radio signals are a great option for long distance with capabilities to travel through walls and require no 
+                                physical wire, but falls short when environmental factors are unstable, and are susceptable to electro-magnetic interference.</li>
+                        </ul>
+                    </li>
+                    <li>Network Utilization:
+                        <ul style="display:block">
+                            <li>Twisted cables are mostly used in LAN networks.</li>
+                            <li>Coaxial cables are used in  networks.</li>
+                            <li>Fiber optic cables are mostly used in networks.</li>
+                            <li>Terrestrail radio channels are mostly utilized to reach wireless equipment such as cell phones and routers.</li>
+                            <li>Satellite radio channels are used when sending information within large regions of the planet and even out to space.</li>
+                        </ul>
+                    </li>
                 </ul>
-            </li>
-            <li>Reliability:
-                <ul style="display:block">
-                    <li>Twisted cables are the "dominant solution for high-speed LAN networking (Kurose 19).</li>
-                    <li>Fiber optic cables are amazing long distances due to their high emi-resistance.</li>
-                    <li>Terrestrial radio signals are a great option for long distance with capabilities to travel through walls and require no 
-                        physical wire, but falls short when environmental factors are unstable, and are susceptable to electro-magnetic interference.</li>
-                </ul>
-            </li>
-            <li>Network Utilization:
-                <ul style="display:block">
-                    <li>Twisted cables are mostly used in LAN networks.</li>
-                    <li>Coaxial cables are used in  networks.</li>
-                    <li>Fiber optic cables are mostly used in networks.</li>
-                    <li>Terrestrail radio channels are mostly utilized to reach wireless equipment such as cell phones and routers.</li>
-                    <li>Satellite radio channels are used when sending information within large regions of the planet and even out to space.</li>
-                </ul>
-            </li>
-        </ul>
-    </div>
+            </div>
+        </div>
+        <div class="right">
+    
+        </div>
+    
     <div class="footer">
         <ul>
             <li>Chris Chism</li>

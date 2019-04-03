@@ -83,9 +83,10 @@ header ul{
 .toc ul{
     height: 100%;
     background-color: pink;
-    padding-left: 0%;
-    padding-top: 0%;
-    margin-top: 0;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    overflow: hidden;
 
 }
 
@@ -108,23 +109,26 @@ header ul{
 }
 
 .left{
-    width: 15%;
+    width: 20%;
     background-color: red;
     float: left;
     padding: 0%;
+    overflow: hidden;
 }
 
 .center{
-    width: 70%;
+    width: 60%;
     background-color: blue;
     float: center;
-    
+    padding: 0;
+    overflow: hidden;
 }
 
 .right{
-    width: 15%;
+    width: 20%;
     background-color: purple;
     float: right;
+    overflow: hidden;
 
 }
 
