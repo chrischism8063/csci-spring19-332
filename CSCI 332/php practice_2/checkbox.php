@@ -9,33 +9,36 @@
 <body>
     <form action="<?=$_SERVER['PHP_SELF']?>" method="POST">
     <?php
-        var_dump($_POST);
-        if(isset($_POST["submit"])){
+        // var_dump($_POST);
+        if(isset($_POST['submit'])){
+            echo "Your favorite fruites are: ";
+            $a = $_POST['fruit'];
             foreach($a as $element){
                 switch($element){
-                    case '0':
+                    case "0":
                         echo "Apple ";
                         break;
-                    case '1':
+                    case "1":
                         echo "Orange";
                         break;
-                    case '2':
+                    case "2":
                         echo "Kiwi";
                         break;
-                    case '3':
+                    case "3":
                         echo "Mango";
                         break;
                 }
             }
-            echo "Your favorite fruites are:";
+            
+        }else{
+            echo" <h1>Pick your favorite fruits</h1>";
+            echo "<input type='checkbox' name='fruit[]' value='0'>Apple<br />";
+            echo "<input type='checkbox' name='fruit[]' value='1'>Orange<br />";
+            echo "<input type='checkbox' name='fruit[]' value='2'>Kiwi<br />";
+            echo "<input type='checkbox' name='fruit[]' value='3'>Mango<br />";
+            echo "<input type='submit' name='submit' value='Submit'>";
         }
     ?>
-        <h1>Pick your faborite fruits</h1>
-        <input type="checkbox" name="fruit[]" value='0'>Apple<br />
-        <input type="checkbox" name="fruit[]" value='1'>Orange<br />
-        <input type="checkbox" name="fruit[]" value='2'>Kiwi<br />
-        <input type="checkbox" name="fruit[]" value='3'>Mango<br />
-        <input type="submit" value="submit">
     </form>
 </body>
 </html>
