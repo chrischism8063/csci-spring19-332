@@ -9,7 +9,6 @@
 <body>
     <form action="<?=$_SERVER['PHP_SELF']?>" method="POST">
     <?php
-        // var_dump($_POST);
         if(isset($_POST['submit'])){
             echo "Your favorite fruites are: ";
             $a = $_POST['fruit'];
