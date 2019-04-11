@@ -1,0 +1,46 @@
+.header{
+    text-align: center;
+}
+
+.main{
+    
+    background-color: blue;
+    color: white;
+    width: 60%;
+    align-content: center;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    flex-wrap: wrap;
+    overflow: hidden;
+}
+
+.pic_baseline{
+    margin: 0%;
+    background-color: lightblue;
+    list-style: none;
+    display: flexbox;
+    width: 33.33%;
+    
+}
+
+.pic_baseline img{
+    align-content: middle;
+    width: 125px;
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    padding: 10px;
+}
+
+.main ul img{
+    text-decoration: none;
+     padding: 10px;
+     
+}
+
+.caption{
+    text-align: center;
+    color: red;
+}
