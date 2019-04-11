@@ -34,13 +34,14 @@
     padding: 10px;
 }
 
-.main ul img{
-    text-decoration: none;
-     padding: 10px;
-     
-}
-
 .caption{
     text-align: center;
     color: red;
+}
+
+.button{
+   display: block;
+   width: 100%;
+   padding: 10px;
+
 }

@@ -46,5 +46,6 @@
             }
         ?>
     </form>
+    <a href="store.html">Task 2</a>
 </body>
 </html>
