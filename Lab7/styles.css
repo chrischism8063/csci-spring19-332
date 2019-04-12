@@ -1,0 +1,21 @@
+div{
+    text-align: center;
+}
+
+ul{
+    text-decoration: none;
+    list-style: none;
+}
+
+.header{
+    background-color: coral;
+}
+
+.main{
+    background-color: crimson;
+}
+
+ul li a{
+    text-decoration:none;
+    color: white;
+}
