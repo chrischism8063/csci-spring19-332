@@ -43,7 +43,6 @@ int main(){
     pthread_join(Sending_thread, NULL);
     pthread_join(Receiver_thread, NULL);
 
-
     return 0;
 }
 
@@ -62,8 +61,10 @@ void *Receiver(void *ptr){
 
     udpSocket = socket(PF_INET, SOCK_DGRAM, 0);
     serverAddr.sin_family = AF_INET;
+    //Buffer automatically assigned
     cout << "Please enter your listening port: ";
     cin >> buffer;
+    // buffer = 12345;
     serverAddr.sin_port = htons(atoi(buffer));
     serverAddr.sin_addr.s_addr = INADDR_ANY;
     memset(serverAddr.sin_zero, '\0', sizeof serverAddr.sin_zero);
@@ -105,8 +106,10 @@ void *Sending(void *ptr){
 
     clientSocket = socket(AF_INET, SOCK_DGRAM, 0);
     serverAddr.sin_family = AF_INET;
+    //port_string automatic
     cout << "Please enter your buddy's port:";
     cin >> port_string;
+    // port_string = 12345;
     //Assign integer into port number variable
     portNum = atoi(port_string);
     //Port number comes from user
