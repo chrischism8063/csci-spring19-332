@@ -54,7 +54,7 @@
         }
         echo "<tr><td  colspan='2'>Total: &#09; $" .$total ."</td></tr>";
         echo "</table>";
-        echo "<a href='store.html'>Home</a>";
+        echo "<a href='index.html'>Home</a>";
     }
 ?>
 

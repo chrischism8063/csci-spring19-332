@@ -18,12 +18,10 @@ int main(){
     char received_msg[1024];
     char port_string[10];
     char ip_string[17];
-
     struct sockaddr_in serverAddr;
     socklen_t addr_size;
 
     clientSocket = socket(AF_INET, SOCK_DGRAM, 0);
-
     serverAddr.sin_family = AF_INET;
     cout << "Please enter the server port:";
     cin >> port_string;
@@ -36,15 +34,15 @@ int main(){
     cin >> ip_string;
     serverAddr.sin_addr.s_addr = inet_addr(ip_string);
     memset(serverAddr.sin_zero, '\0', sizeof(serverAddr.sin_zero));
-
     addr_size = sizeof serverAddr;
 
     do{
         cout << "Type a sentence to send to the server: ";
-        cin.getline(input_buffer, 1024, '/n');
+        cin.getline(input_buffer, 1024, '\n');
         nBytes = strlen(input_buffer)+1;
         cout << input_buffer << " " << nBytes << endl;
-        sendto(clientSocket, input_buffer, nBytes, 0, (struct sockaddr * )&serverAddr, addr_size);
+        sendto(clientSocket, input_buffer, nBytes, 0, 
+        (struct sockaddr * )&serverAddr, addr_size);
         nBytes = recvfrom(clientSocket, received_msg, 1024, 0, NULL, NULL);
         cout << "Received from server: " << received_msg << endl;
 

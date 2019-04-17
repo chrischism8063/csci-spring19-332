@@ -1,5 +1,5 @@
 body{
-    background-color: darkslategray;
+    /* background-color: darkslategray; */
     color: white;
     margin-bottom: 10%;
     padding: 0%;
@@ -59,7 +59,7 @@ div{
 }
 
 header{
-    background-color: slateblue;
+    /* background-color: slateblue; */
     padding: 10px;
     text-align: center;
     margin: 0%;
@@ -82,7 +82,7 @@ header ul{
 
 .toc ul{
     height: 100%;
-    background-color: pink;
+    /* background-color: pink; */
     padding: 0;
     margin: 0;
     width: 100%;
@@ -110,7 +110,7 @@ header ul{
 
 .left{
     width: 20%;
-    background-color: red;
+    /* background-color: red; */
     float: left;
     padding: 0%;
     overflow: hidden;
@@ -118,7 +118,7 @@ header ul{
 
 .center{
     width: 60%;
-    background-color: blue;
+    /* background-color: blue; */
     float: center;
     padding: 0;
     overflow: hidden;
@@ -126,7 +126,7 @@ header ul{
 
 .right{
     width: 20%;
-    background-color: purple;
+    /* background-color: purple; */
     float: right;
     overflow: hidden;
 
@@ -143,7 +143,7 @@ header ul{
     margin: 0%;
     overflow: hidden;
     padding: 0%;
-    background-color: greenyellow;
+    /* background-color: greenyellow; */
 }
 
 .upper{
@@ -155,7 +155,7 @@ header ul{
 }
 
 .split{
-    background-color: cadetblue;
+    /* background-color: cadetblue; */
     position: relative;
     top: 10%;
     width: 100%

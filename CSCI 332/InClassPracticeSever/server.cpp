@@ -27,20 +27,23 @@ int main(){
     cin >> buffer;
     serverAddr.sin_port = htons(atoi(buffer));
     serverAddr.sin_addr.s_addr = INADDR_ANY;
-    memset(serverAddr.sin_zero, '/0', sizeof serverAddr.sin_zero);
+    memset(serverAddr.sin_zero, '\0', sizeof serverAddr.sin_zero);
     bind(udpSocket, (struct sockaddr *)&serverAddr, sizeof(serverAddr));
+    
     addr_size = sizeof serverStorage;
-555
     do{
-        nBytes = recvfrom(udpSocket, buffer, 1024, 0, (struct sockaddr *)&serverStorage, &addr_size);
-        cout << "I received: " << buffer << endl;
+        nBytes = recvfrom(udpSocket, buffer, 1024, 0, 
+            (struct sockaddr *)&serverStorage, &addr_size);
+        cout << "I received: " << buffer << "size:" << nBytes << endl;
         // Convert data in either upper or lowercase for standardization
         for(int i = 0; i < nBytes-1; i++)
             return_msg[i] = toupper(buffer[i]);
         
+        return_msg[strlen(buffer)] = 0;
         // When wanting to send back to server/client, always use sendto()
-        sendto(udpSocket, return_msg, strlen(return_msg), 0, (struct sockaddr *)&serverStorage, addr_size);
-    }while(strncmp(buffer, "Quit", strlen(buffer)-1 != 0));
+        sendto(udpSocket, return_msg, strlen(return_msg), 0, 
+        (struct sockaddr *)&serverStorage, addr_size);
+    }while(strncmp(buffer, "Quit", strlen(buffer)-1) != 0);
     cout << "Exit..." << endl;
 
     return 0;
