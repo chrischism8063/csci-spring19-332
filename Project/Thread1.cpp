@@ -14,7 +14,8 @@ using namespace std;
 void *Receiver(void *ptr);
 void *Sending(void *ptr);
 
-int common_int;
+char buffer[1024], port_string[10], ip_string[17];
+
 pthread_mutex_t mutex1 = PTHREAD_MUTEX_INITIALIZER;
 
 int main(){
@@ -23,7 +24,19 @@ int main(){
     const char *message1 = "Receiver Thread";
     const char *message2 = "Sending Thread";
 
+
+
     int iret1, iret2;
+
+    cout << "Please enter your listening port: ";
+    cin >> buffer;
+
+    cout << "Please enter your buddy's port:";
+    cin >> port_string;
+
+    cout << "PLease enter your buddy's IP:";
+    cin >> ip_string;
+
 
     iret1 = pthread_create(&Receiver_thread, NULL, &Receiver, (void *)message1);
     //If not successful
@@ -52,7 +65,7 @@ void *Receiver(void *ptr){
 
     // Inserted Sever Code
     int udpSocket, nBytes;
-    char buffer[1024], return_msg[1024];
+    char return_msg[1024];
 
     struct sockaddr_in serverAddr, clientAddr;
     struct sockaddr_storage serverStorage;
@@ -62,8 +75,7 @@ void *Receiver(void *ptr){
     udpSocket = socket(PF_INET, SOCK_DGRAM, 0);
     serverAddr.sin_family = AF_INET;
     //Buffer automatically assigned
-    cout << "Please enter your listening port: ";
-    cin >> buffer;
+
     // buffer = 12345;
     serverAddr.sin_port = htons(atoi(buffer));
     serverAddr.sin_addr.s_addr = INADDR_ANY;
@@ -72,7 +84,6 @@ void *Receiver(void *ptr){
     
     addr_size = sizeof serverStorage;
     do{
-        pthread_mutex_lock(&mutex1);
 
         nBytes = recvfrom(udpSocket, buffer, 1024, 0, 
             (struct sockaddr *)&serverStorage, &addr_size);
@@ -85,7 +96,6 @@ void *Receiver(void *ptr){
         // When wanting to send back to server/client, always use sendto()
         sendto(udpSocket, return_msg, strlen(return_msg), 0, 
         (struct sockaddr *)&serverStorage, addr_size);
-        pthread_mutex_unlock(&mutex1);
     }while(strncmp(buffer, "Quit", strlen(buffer)-1) != 0);
    
     return NULL;
@@ -99,30 +109,26 @@ void *Sending(void *ptr){
     int clientSocket, portNum, nBytes;
     char input_buffer[1024];
     char received_msg[1024];
-    char port_string[10];
-    char ip_string[17];
+
     struct sockaddr_in serverAddr;
     socklen_t addr_size;
 
     clientSocket = socket(AF_INET, SOCK_DGRAM, 0);
     serverAddr.sin_family = AF_INET;
     //port_string automatic
-    cout << "Please enter your buddy's port:";
-    cin >> port_string;
+
     // port_string = 12345;
     //Assign integer into port number variable
     portNum = atoi(port_string);
     //Port number comes from user
     serverAddr.sin_port = htons(portNum);
 
-    cout << "PLease enter your buddy's IP:";
-    cin >> ip_string;
+
     serverAddr.sin_addr.s_addr = inet_addr(ip_string);
     memset(serverAddr.sin_zero, '\0', sizeof(serverAddr.sin_zero));
     addr_size = sizeof serverAddr;
 
     do{
-        pthread_mutex_lock(&mutex1);
         cout << "Type a sentence to send to your buddy: ";
         cin.getline(input_buffer, 1024, '\n');
         nBytes = strlen(input_buffer)+1;
@@ -132,7 +138,6 @@ void *Sending(void *ptr){
         nBytes = recvfrom(clientSocket, received_msg, 1024, 0, NULL, NULL);
         cout << received_msg << endl;
 
-    pthread_mutex_unlock(&mutex1);
     }while(strncmp(input_buffer, "Quit", strlen(input_buffer)-1) != 0);
 
 
