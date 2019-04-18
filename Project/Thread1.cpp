@@ -8,13 +8,14 @@
 #include <arpa/inet.h>
 #include <ctype.h>
 #include <cstdlib>
+#include <cstring>
 
 using namespace std;
 
 void *Receiver(void *ptr);
 void *Sending(void *ptr);
 
-char buffer[1024], port_string[10], ip_string[17];
+char buffer[1024], port_string[10], ip_string[17], return_msg[1024];;
 
 pthread_mutex_t mutex1 = PTHREAD_MUTEX_INITIALIZER;
 
@@ -23,8 +24,6 @@ int main(){
 
     const char *message1 = "Receiver Thread";
     const char *message2 = "Sending Thread";
-
-
 
     int iret1, iret2;
 
@@ -65,7 +64,6 @@ void *Receiver(void *ptr){
 
     // Inserted Sever Code
     int udpSocket, nBytes;
-    char return_msg[1024];
 
     struct sockaddr_in serverAddr, clientAddr;
     struct sockaddr_storage serverStorage;
@@ -74,9 +72,7 @@ void *Receiver(void *ptr){
 
     udpSocket = socket(PF_INET, SOCK_DGRAM, 0);
     serverAddr.sin_family = AF_INET;
-    //Buffer automatically assigned
 
-    // buffer = 12345;
     serverAddr.sin_port = htons(atoi(buffer));
     serverAddr.sin_addr.s_addr = INADDR_ANY;
     memset(serverAddr.sin_zero, '\0', sizeof serverAddr.sin_zero);
@@ -84,10 +80,12 @@ void *Receiver(void *ptr){
     
     addr_size = sizeof serverStorage;
     do{
-
         nBytes = recvfrom(udpSocket, buffer, 1024, 0, 
             (struct sockaddr *)&serverStorage, &addr_size);
+
+        //TL
         cout << "I received: " << buffer  << endl;
+
         // Convert data in either upper or lowercase for standardization
         for(int i = 0; i < nBytes-1; i++)
             return_msg[i] = toupper(buffer[i]);
@@ -115,24 +113,42 @@ void *Sending(void *ptr){
 
     clientSocket = socket(AF_INET, SOCK_DGRAM, 0);
     serverAddr.sin_family = AF_INET;
-    //port_string automatic
 
-    // port_string = 12345;
     //Assign integer into port number variable
     portNum = atoi(port_string);
     //Port number comes from user
     serverAddr.sin_port = htons(portNum);
-
 
     serverAddr.sin_addr.s_addr = inet_addr(ip_string);
     memset(serverAddr.sin_zero, '\0', sizeof(serverAddr.sin_zero));
     addr_size = sizeof serverAddr;
 
     do{
-        cout << "Type a sentence to send to your buddy: ";
-        cin.getline(input_buffer, 1024, '\n');
-        nBytes = strlen(input_buffer)+1;
-        cout << input_buffer << " " << nBytes << endl;
+        //First checks to see if input buffer is null
+        if(buffer == NULL){
+            cout << "Type a sentence to send to your buddy: ";
+            cin.getline(input_buffer, 1024, '\n');
+            nBytes = strlen(input_buffer)+1;
+
+            //TL
+            cout << input_buffer << " " << nBytes << endl;
+        }else if(buffer == "monkey"){
+            string a =  "banana";
+            strcpy (input_buffer, a.c_str());
+        }else if(buffer == "elephant"){
+            string b = "mouse";
+            strcpy (input_buffer, b.c_str());
+        }else if(buffer == "flower"){
+            string c = "beautiful";
+            strcpy (input_buffer, c.c_str());
+        }else if(buffer == "house"){
+            string d = "safe";
+            strcpy (input_buffer, d.c_str());
+        }else if(buffer == "car"){
+            string d = "fast";
+            strcpy (input_buffer, d.c_str());
+        }
+
         sendto(clientSocket, input_buffer, nBytes, 0, 
         (struct sockaddr * )&serverAddr, addr_size);
         nBytes = recvfrom(clientSocket, received_msg, 1024, 0, NULL, NULL);
