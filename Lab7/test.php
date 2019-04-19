@@ -11,17 +11,21 @@
         $servername = "localhost";
         $username = "root";
         $password = "1q@W_#E4r";
-        $conn = new mysqli(servername, username, password);
+        $conn = new mysqli($servername, $username, $password);
 
         if(!$conn){
-            die("Connection failed:" .$conn->connect_error);
+            die("Connection failed:" .$conn->connect_error ."<br />");
+        }else{
+            echo "Connection successful!<br />";
         }
 
         $sql = "CREATE DATABASE IF NOT exists CSCI332";
         if($conn->query($sql) == TRUE){
-            echo "Database created successfully!";
+            echo "Database created successfully!<br />";
+            $sql = "USE CSCI332";
+            $conn->query($sql);
         }else{
-            echo "Error creating database:" .$conn->error;
+            echo "Error creating database:" .$conn->error ."<br />";
         }
 
         $sql = "CREATE TABLE student(
@@ -33,18 +37,20 @@
             final INT, 
             grade FLOAT(10,2)
             )";
-        if($con->query($sql) == TRUE){
-            echo "Table created successfully!";
+        if($conn->query($sql) == TRUE){
+            echo "Table created successfully!<br />";
         }else{
-            echo "Error creating database:" .$conn->error;
+            echo "Error creating table:" .$conn->error ."<br />";
         }
-
-        $sql = "INSERT INTO student (firstname, lastname, test1, test2, fianl) VALUES ('" .$_POST['last'] ."','" . $_POST['test1']."','" .$_POST['test2']."','" .$_POST['final']."')";
-        echo $sql;
-        if($con->query($sql) == TRUE){
-            echo "Record created successfully!";
-        }else{
-            echo "Error creating record:" .$conn->error;
+        if(isset($_POST['submit'])){
+            $sql = "INSERT INTO student (firstname, lastname, test1, test2, final) VALUES 
+            ( '".$_POST["first"]."','".$_POST["last"]."', '".$_POST["test1"]."', '".$_POST["test2"]."', '".$_POST["final"]."')";
+            echo $sql;
+            if($conn->query($sql) == TRUE){
+                echo "Record created successfully!<br />";
+            }else{
+                echo "Error creating record:" .$conn->error ."<br />";
+            }
         }
         $conn->close();
     
