@@ -62,14 +62,14 @@
             echo "Successfully created Classes Table<br />";
         }
 
-        $sql = "CREATE TABLE IF NOT EXISTS Schedule
+        $sql = "CREATE TABLE IF NOT EXISTS Students
             ( CID INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
             Name VARCHAR(40) NOT NULL )";
         if($conn->query($sql)){
             echo "Successfully created Schedule Table<br />";
         }
 
-        $sql = "CREATE TABLE IF NOT EXISTS Students
+        $sql = "CREATE TABLE IF NOT EXISTS Schedule
             (EID INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
             SNAME VARCHAR(40) NOT NULL,
             Class1  VARCHAR(40) NOT NULL,

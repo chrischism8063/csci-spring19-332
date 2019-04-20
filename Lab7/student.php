@@ -13,7 +13,7 @@
     </div>
 
 
-    <form action="">
+    <form method="post" action="<?=$_SERVER['PHP_SELF'] ?>">
         Name: <input type="text" name="name" id="name">
         <button type="submit">Submit</button>
     </form>
@@ -24,24 +24,38 @@
     <div>
         <!-- show all data in table regardless of any entries-->
         <?php
-            $conn = new mysqli($_P0ST['server'], $_POST['user'], $_POST['pass']);
+            $conn = new mysqli( "localhost", "root", "1q@W_#E4r", "Registrations");
 
-            if(!$conn)
+            if(!$conn){
                 die("Connection failed:" .$conn->connect_error ."<br />");
-            else
-                echo "Connection successful!<br />";
-
-            $sql = "use Registrations";
-            if($conn->query($sql)){
-                echo "Successfully accessed the Registrations Database!<br />";
             }else{
-                echo "Access Denied!<br />";
+                echo "Connection successful!<br />";
             }
 
-                $sql = "SELECT * FROM Students";
-                $record = $conn->query($sql);
-                echo $record;
+            $sql = "INSERT INTO Students (Name) VALUES ('".$_POST['name']."')";
 
+            if($conn->query($sql)){
+                $sql = "SELECT * FROM Students";
+
+                $result = $conn->query($sql);
+                while($result->num_rows > 0){
+                    echo "id: " .$row["CID"] ."name: " .$row["name"];
+               }
+            }else{
+                echo "Insertion Failure:" .$conn->error();
+            }
+
+
+            if($conn->query($sql)){
+                echo "This worked";
+                var_dump($record);
+            }else{
+                echo "Not successful";
+            }
+
+
+
+            $conn->close();
         ?>
         
     </div>
