@@ -5,16 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="styles.css">    
-    <title>Student Menu</title>
+    <title>Class Menu</title>
 </head>
 <body>
-    <div class="header">
-        <h1>CSCI University New Student Page</h1>
+     <div class="header">
+        <h1>CSCI University New Class Page</h1>
         <a href="index.php">Home</a>
     </div>
     <div class="main">
         <form method="post" action="<?=$_SERVER['PHP_SELF'] ?>">
-            Name: <input type="text" name="name" id="name" placeholder="Name Here">
+            Class Name: <input type="text" name="name" id="name" placeholder="Name Here">
             <button type="submit" name="submit">Enroll</button>
         </form>
     </div>  
@@ -25,16 +25,17 @@
             $conn = new mysqli( "localhost", "root", "1q@W_#E4r", "registrations");
 
             if(!$conn){
-                die($_message  = "Connection failed:" .$conn->connect_error ."<br />");
+                die("Connection failed:" .$conn->connect_error ."<br />");
             }else{
                 echo "Connection successful!<br />";
             }
 
             if(isset($_POST['submit']) && (!empty($_POST['name']))){
-                $sql = "INSERT INTO students (Name) VALUES ('" .$_POST["name"] . "')";
+                echo "<---Submitted--->";
+                $sql = "INSERT INTO classes (Name) VALUES ('" .$_POST["name"] . "')";
                 if($conn->query($sql)){
                     echo "<br />---Insertion successful---<br />";
-                    $sql = "SELECT * FROM students";
+                    $sql = "SELECT * FROM classes";
 
                     $result = $conn->query($sql);
                     if($result){
@@ -42,7 +43,7 @@
                             echo "<table border='1'>";
                             echo "<tr><th>ID</th><th>Name</th></tr>";
                             while($row=$result->fetch_assoc()){
-                                echo "<tr><td>".$row["SID"] ."</td>";
+                                echo "<tr><td>".$row["CID"] ."</td>";
                                 echo "<td>" .$row["Name"] ."</td></tr>";
                             }
                             echo "</table>";
@@ -50,7 +51,6 @@
                     }else{
                         echo "Insert failed.<br />";
                     }
-                    
                 }
             }else{
                 // Message code here = "Please enter a valid name and submit!";

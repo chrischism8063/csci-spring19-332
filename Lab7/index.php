@@ -17,10 +17,10 @@
                 <a href="student.php">New Student</a>
             </li>
             <li>
-                <a href="">New Class</a>
+                <a href="class.php">New Class</a>
             </li>
             <li>
-                <a href="">Register for Classes</a>
+                <a href="registration.php">Register for Classes</a>
             </li>
         </ul>
     </div>
@@ -28,11 +28,6 @@
         $servername = "localhost";
         $username = "root";
         $password = "1q@W_#E4r";
-
-        //Would not do this if it was live...
-        $_P0ST['server'] = "localhost";
-        $_POST['user'] = "root";
-        $_POST['pass'] = "1q@W_#E4r";
 
         $conn = new mysqli($servername, $username, $password);
         
@@ -55,7 +50,7 @@
 
         //Create tables
         $sql = "CREATE TABLE IF NOT EXISTS Classes
-            (SID INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY, 
+            (CID INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY, 
             Name VARCHAR(40) NOT NULL
             )";
         if($conn->query($sql)){
@@ -63,7 +58,7 @@
         }
 
         $sql = "CREATE TABLE IF NOT EXISTS Students
-            ( CID INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+            ( SID INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
             Name VARCHAR(40) NOT NULL )";
         if($conn->query($sql)){
             echo "Successfully created Schedule Table<br />";
@@ -78,7 +73,7 @@
         if($conn->query($sql)){
             echo "Successfully created Students Table<br />";
         }
-
+        $conn->close();
     ?>
 </body>
 </html>
