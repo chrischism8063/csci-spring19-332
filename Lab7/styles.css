@@ -1,6 +1,4 @@
 body{
-    background-image: url("background.jpg");
-    /* background-size: 100%; */
     background-repeat: no-repeat;
     margin: 0%;
     display: block;
@@ -14,11 +12,13 @@ div{
 ul{
     text-decoration: none;
     list-style: none;
+    padding: 10px;
+    display: block;
 }
 
 .header{
     text-align: center;
-    background-color: coral;
+    /* background-color: coral; */
     margin: 0%;
     top: 0;
     height: 125px;
@@ -30,7 +30,7 @@ ul{
 }
 
 .main{
-    background-color: crimson;
+    /* background-color: crimson; */
     width: 45%;
     margin: auto;
 }
@@ -40,19 +40,21 @@ ul{
     padding: 10px;
 }
 
+ul li{
+    padding: 10px;
+}
 ul li a{
     text-decoration:none;
-    color: white;
     padding: 10px;
 }
 
 .display_table{
     align-content: center;
-    background-color: purple;
+    /* background-color: purple; */
     padding: 10px;
 }
 
 .message_holder{
-    background-color: antiquewhite;
+    /* background-color: antiquewhite; */
     padding: 10px;
 }

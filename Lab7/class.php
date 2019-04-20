@@ -31,10 +31,8 @@
             }
 
             if(isset($_POST['submit']) && (!empty($_POST['name']))){
-                echo "<---Submitted--->";
                 $sql = "INSERT INTO classes (Name) VALUES ('" .$_POST["name"] . "')";
                 if($conn->query($sql)){
-                    echo "<br />---Insertion successful---<br />";
                     $sql = "SELECT * FROM classes";
 
                     $result = $conn->query($sql);
@@ -53,8 +51,7 @@
                     }
                 }
             }else{
-                // Message code here = "Please enter a valid name and submit!";
-                echo "Bad";
+                echo "Please enter a valid name and submit!";
             }
             
             $conn->close();

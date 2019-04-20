@@ -47,76 +47,135 @@
         <?php
             // $pre_selected = $_POST['classes'];
             if(isset($_POST['submit']) && (!empty($_POST['classes'])) && (!empty($_POST['name'])) && (count($_POST['classes']) < 4)){
-                echo "Submit has been selected<br />";
+                $eid = "";
+                //check records to see if student name already exists, if so, only update
+                $exist_sql = "SELECT EID from schedule WHERE SNAME ='" .$_POST['name'] ."'";
 
+                $exist_result = $conn->query($exist_sql);
+                //Checking to see if student is exists
+                if($exist_result->num_rows > 0)
+                {
+                    //Build UPDATE sql
+                    while($exist_row=$exist_result->fetch_assoc())
+                    {
+                        //use $exist_row['EID']  for the actual eid # when updating
+                        $eid = $exist_row['EID'];
 
-
-
-                $sql = "INSERT INTO schedule (SNAME, Class1, Class2, Class3) VALUES('" .$_POST['name'] ."'";
-
-
-            $punct = "', '";
-            $end = "')";
-            $class_selected = $_POST['classes'];
-            unset($_POST['classes']);
-            for($a = 0; $a < count($class_selected); $a++){
-                //Add a class selected
-                //get names of each class however man         
-                $sql = "SELECT Name Where CID='" .$class_selected[$a] ."'";
-                $result = $conn->query($sql);
-
-                //STOPPED HERE
-                echo $result['name'];
-                if($result){
-                    if($result->num_rows > 0){
-                     while($row=$result->fetch_assoc()){
-                        $sql = $sql.$class_selected[$a];
-                        echo $class_selected[$a] ."<br />";
-                        //If it isnt the last item, add a comma to it.
-                        if($a < count($class_selected)){
-                            $sql = $sql.$punct;
+                        if(count($_POST['classes']) > 0){
+                            $main_sql = "UPDATE schedule SET Class1='";
                         }
-                }else{
-                    echo "Insert failed";
-                }
-                
-            }
-            $class_selected = array();
-            $sql = $sql.$end;
-
-            echo "<br />" .$sql ."<br />";
-
-            //Show table
-            if($conn->query($sql)){
-                $_message = "<br />---Insertion successful---<br />";
-
-                $sql = "SELECT * FROM schedule";
-
-                $result = $conn->query($sql);
-                if($result){
-                    if($result->num_rows > 0){
-                        echo "<table border='1'>";
-                        echo "<tr><th>Enrollment ID</th><th>Student Name</th><th>Class Name</th><th>Class Name</th><th>Class Name</th></tr>";
-                        while($row=$result->fetch_assoc()){
-                            echo "<tr>";
-                            echo "<td>".$row["EID"] ."</td>";
-                            echo "<td>" .$row["SNAME"] ."</td>";
-                            echo "<td>" .$row["Class1"] ."</td>";
-                            echo "<td>" .$row["Class2"] ."</td>";
-                            echo "<td>" .$row["Class3"] ."</td>";
-                            echo "</tr>";
-                        }
-                        echo "</table>";
                     }
                 }else{
-                    $_message = "Insert failed.<br />";
+                    //Build INSERT sql
+                    //Create statement based off size of classes ONLY!!!!
+                    if(count($_POST['classes']) == 1){
+                        $main_sql = "INSERT INTO schedule (SNAME, Class1) VALUES
+                        ('" .$_POST['name'] ."','";
+                    }else if(count($_POST['classes']) == 2){
+                        $main_sql = "INSERT INTO schedule (SNAME, Class1, Class2) VALUES
+                        ('" .$_POST['name'] ."','";
+                    }else if(count($_POST['classes']) == 3){
+                        $main_sql = "INSERT INTO schedule (SNAME, Class1, Class2, Class3) VALUES
+                        ('" .$_POST['name'] ."','";
+                    }
+                }
+
+                $class_selected = $_POST['classes'];
+
+                //Clear classes array
+                unset($_POST['classes']);
+
+                //get the names of the classes chosen to insert into database
+                for($a = 0; $a < count($class_selected); $a++){
+                    //Add a class selected
+                    //get names of each class however man    
+                    $sql = "SELECT Name from classes Where CID='" .$class_selected[$a] ."'";
+                    $result = $conn->query($sql);
+
+                    //Add class name to sql string
+                    if($result)
+                    {
+                        if($result->num_rows > 0)
+                        {
+                            while($row=$result->fetch_assoc())
+                            {
+                                $update_sql_one = "', Class2='";
+                                $update_sql_two = "', Class3='";
+                                $update_end_sql = "' WHERE EID='" .$eid ."'";
+                                $punct = "', '";
+                                $end = "')";
+                                //last edie was removing ' from before parenthesis
+
+                                //INSERT SQL ONLY-->If it isnt the last item, add a comma to it.
+                                if($a < count($class_selected)-1 && !($exist_result->num_rows > 0))
+                                {
+                                    $main_sql = $main_sql .$row['Name'] .$punct;
+                                }
+                                //if at last item close sql
+                                else if(!($exist_result->num_rows > 0))
+                                {
+                                    $main_sql = $main_sql.$end;
+                                }                              
+
+                                //UPDATE SQL ONLY-->Checking the number of rows to build string 
+                                if($exist_result->num_rows == 1){
+                                    if($a == 0){
+                                        $main_sql = $main_sql .$row['Name'] .$update_end_sql;
+                                    }
+                                }else if($exist_result->num_rows == 2){
+                                    if($a == 0){
+                                        $main_sql = $main_sql .$row['Name'] .$update_sql_one;
+                                    }else if($a == 1){
+                                        $main_sql = $main_sql .$row['Name'] .$update_end_sql;
+                                    }
+                                }else if($exist_result->num_rows == 3){
+                                    if($a == 0){
+                                        $main_sql = $main_sql .$row['Name'] .$update_sql_one;
+                                    }else if($a == 1){
+                                        $main_sql = $main_sql .$row['Name'] .$update_sql_two;
+                                    }else if($a == 2){
+                                        $main_sql = $main_sql .$row['Name'] .$update_end_sql;
+                                    }
+                                }
+                            }
+                        }
+                    }else{
+                        echo "Query failed <br />";
+                    }
+                }
+                $class_selected = array();
+                
+                //PROBLEM IN THIS QUERY
+                $result = $conn->query($main_sql);
+
+                //Show table
+                if($result){
+                    $sql = "SELECT * FROM schedule";
+                    $result = $conn->query($sql);
+
+                    if($result){
+                        if($result->num_rows > 0){
+                            echo "<table border='1'>";
+                            echo "<tr><th>Enrollment ID</th><th>Student Name</th><th>Class Name</th><th>Class Name</th><th>Class Name</th></tr>";
+                            while($row=$result->fetch_assoc()){
+                                echo "<tr>";
+                                echo "<td>".$row["EID"] ."</td>";
+                                echo "<td>" .$row["SNAME"] ."</td>";
+                                echo "<td>" .$row["Class1"] ."</td>";
+                                echo "<td>" .$row["Class2"] ."</td>";
+                                echo "<td>" .$row["Class3"] ."</td>";
+                                echo "</tr>";
+                            }
+                            echo "</table>";
+                        }
+                    }else{
+                        echo "Insert failed: " .$sql ."<br />";
+                    }
+                }else{
+                    echo "Insertion into schedule failed: " .$main_sql ."<br />";
                 }
             }
-        }else{
-            // Message code here = "Please enter a valid name and submit!";
-            echo "Bad";
-        }
-        $conn->close();
+            $conn->close();
         ?>
         
     </div>
