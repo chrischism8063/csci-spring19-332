@@ -18,15 +18,13 @@
             Name: <input type="text" name="name" id="name" placeholder="Name Here"><br />
             Pick at most 3 classes:<br />
             <?php
-                $conn = new mysqli( "localhost", "root", "1q@W_#E4r", "registrations");
+                $conn = new mysqli( "localhost", "root", "1q@W_#E4r", "Registrations");
 
                 if(!$conn){
                     die("Connection failed:" .$conn->connect_error ."<br />");
-                }else{
-                    echo "Connection successful!<br />";
                 }
                     
-                $sql = "SELECT * FROM classes";
+                $sql = "SELECT * FROM Classes";
                 $result = $conn->query($sql);
                 if($result){
                     if($result->num_rows > 0){
@@ -49,7 +47,7 @@
             if(isset($_POST['submit']) && (!empty($_POST['classes'])) && (!empty($_POST['name'])) && (count($_POST['classes']) < 4)){
                 $eid = "";
                 //check records to see if student name already exists, if so, only update
-                $exist_sql = "SELECT EID from schedule WHERE SNAME ='" .$_POST['name'] ."'";
+                $exist_sql = "SELECT EID from Schedule WHERE SNAME ='" .$_POST['name'] ."'";
 
                 $exist_result = $conn->query($exist_sql);
                 //Checking to see if student is exists
@@ -62,20 +60,20 @@
                         $eid = $exist_row['EID'];
 
                         if(count($_POST['classes']) > 0){
-                            $main_sql = "UPDATE schedule SET Class1='";
+                            $main_sql = "UPDATE Schedule SET Class1='";
                         }
                     }
                 }else{
                     //Build INSERT sql
                     //Create statement based off size of classes ONLY!!!!
                     if(count($_POST['classes']) == 1){
-                        $main_sql = "INSERT INTO schedule (SNAME, Class1) VALUES
+                        $main_sql = "INSERT INTO Schedule (SNAME, Class1) VALUES
                         ('" .$_POST['name'] ."','";
                     }else if(count($_POST['classes']) == 2){
-                        $main_sql = "INSERT INTO schedule (SNAME, Class1, Class2) VALUES
+                        $main_sql = "INSERT INTO Schedule (SNAME, Class1, Class2) VALUES
                         ('" .$_POST['name'] ."','";
                     }else if(count($_POST['classes']) == 3){
-                        $main_sql = "INSERT INTO schedule (SNAME, Class1, Class2, Class3) VALUES
+                        $main_sql = "INSERT INTO Schedule (SNAME, Class1, Class2, Class3) VALUES
                         ('" .$_POST['name'] ."','";
                     }
                 }
@@ -89,7 +87,7 @@
                 for($a = 0; $a < count($class_selected); $a++){
                     //Add a class selected
                     //get names of each class however man    
-                    $sql = "SELECT Name from classes Where CID='" .$class_selected[$a] ."'";
+                    $sql = "SELECT Name from Classes Where CID='" .$class_selected[$a] ."'";
                     $result = $conn->query($sql);
 
                     //Add class name to sql string
@@ -150,11 +148,12 @@
 
                 //Show table
                 if($result){
-                    $sql = "SELECT * FROM schedule";
+                    $sql = "SELECT * FROM Schedule";
                     $result = $conn->query($sql);
 
                     if($result){
                         if($result->num_rows > 0){
+                            echo "<br />Record insert successfully <br />";
                             echo "<table border='1'>";
                             echo "<tr><th>Enrollment ID</th><th>Student Name</th><th>Class Name</th><th>Class Name</th><th>Class Name</th></tr>";
                             while($row=$result->fetch_assoc()){
@@ -177,7 +176,6 @@
             }
             $conn->close();
         ?>
-        
     </div>
 </body>
 </html>

@@ -22,19 +22,16 @@
     <div class="display_table">
         <!-- show all data in table regardless of any entries-->
         <?php
-            $conn = new mysqli( "localhost", "root", "1q@W_#E4r", "registrations");
+            $conn = new mysqli( "localhost", "root", "1q@W_#E4r", "Registrations");
 
             if(!$conn){
                 die($_message  = "Connection failed:" .$conn->connect_error ."<br />");
-            }else{
-                echo "Connection successful!<br />";
             }
-
             if(isset($_POST['submit']) && (!empty($_POST['name']))){
-                $sql = "INSERT INTO students (Name) VALUES ('" .$_POST["name"] . "')";
+                $sql = "INSERT INTO Students (Name) VALUES ('" .$_POST["name"] . "')";
                 if($conn->query($sql)){
-                    echo "<br />---Insertion successful---<br />";
-                    $sql = "SELECT * FROM students";
+                    echo "<br />Record Insert a<br />";
+                    $sql = "SELECT * FROM Students";
 
                     $result = $conn->query($sql);
                     if($result){
@@ -50,11 +47,9 @@
                     }else{
                         echo "Insert failed.<br />";
                     }
-                    
                 }
             }else{
-                // Message code here = "Please enter a valid name and submit!";
-                echo "Bad";
+                echo "Please enter a valid name and submit!";
             }
             
             $conn->close();

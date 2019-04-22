@@ -33,15 +33,12 @@
         
         if(!$conn){
             die("Connection failed:" .$conn->connect_error ."<br />");
-        }else{
-            echo "Connection successful!<br />";
         }
 
         //Create database
         $sql = "CREATE DATABASE IF NOT EXISTS Registrations";
 
         if($conn->query($sql)){
-            echo "Successfully created database!<br />";
             $sql = "use Registrations";
             $conn->query($sql);
         }else{
@@ -54,14 +51,14 @@
             Name VARCHAR(40) NOT NULL
             )";
         if($conn->query($sql)){
-            echo "Successfully created Classes Table<br />";
+            // echo "Successfully created Classes Table<br />";
         }
 
         $sql = "CREATE TABLE IF NOT EXISTS Students
             ( SID INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
             Name VARCHAR(40) NOT NULL )";
         if($conn->query($sql)){
-            echo "Successfully created Schedule Table<br />";
+            // echo "Successfully created Schedule Table<br />";
         }
 
         $sql = "CREATE TABLE IF NOT EXISTS Schedule
@@ -71,7 +68,7 @@
             Class2  VARCHAR(40),
             Class3 VARCHAR(40))";
         if($conn->query($sql)){
-            echo "Successfully created Students Table<br />";
+            // echo "Successfully created Students Table<br />";
         }
         $conn->close();
     ?>

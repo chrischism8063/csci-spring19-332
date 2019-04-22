@@ -22,18 +22,19 @@
     <div class="display_table">
         <!-- show all data in table regardless of any entries-->
         <?php
-            $conn = new mysqli( "localhost", "root", "1q@W_#E4r", "registrations");
+            $conn = new mysqli( "localhost", "root", "1q@W_#E4r", "Registrations");
 
             if(!$conn){
                 die("Connection failed:" .$conn->connect_error ."<br />");
             }else{
-                echo "Connection successful!<br />";
+                // echo "Connection successful!<br />";
             }
 
             if(isset($_POST['submit']) && (!empty($_POST['name']))){
-                $sql = "INSERT INTO classes (Name) VALUES ('" .$_POST["name"] . "')";
+                $sql = "INSERT INTO Classes (Name) VALUES ('" .$_POST["name"] . "')";
+                echo "<br />Record Insert successfully<br />";
                 if($conn->query($sql)){
-                    $sql = "SELECT * FROM classes";
+                    $sql = "SELECT * FROM Classes";
 
                     $result = $conn->query($sql);
                     if($result){
@@ -50,7 +51,7 @@
                         echo "Insert failed.<br />";
                     }
                 }
-            }else{
+            }else if(isset($_POST['submit']) && (empty($_POST['name']))){
                 echo "Please enter a valid name and submit!";
             }
             
