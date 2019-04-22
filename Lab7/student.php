@@ -30,7 +30,7 @@
             if(isset($_POST['submit']) && (!empty($_POST['name']))){
                 $sql = "INSERT INTO Students (Name) VALUES ('" .$_POST["name"] . "')";
                 if($conn->query($sql)){
-                    echo "<br />Record Insert a<br />";
+                    echo "<br />Record Insert successfully<br />";
                     $sql = "SELECT * FROM Students";
 
                     $result = $conn->query($sql);
@@ -48,7 +48,7 @@
                         echo "Insert failed.<br />";
                     }
                 }
-            }else{
+            }else if(isset($_POST['submit']) && (empty($_POST['name']))){
                 echo "Please enter a valid name and submit!";
             }
             
