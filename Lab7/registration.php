@@ -102,7 +102,7 @@
                                 $update_end_sql = "' WHERE EID='" .$eid ."'";
                                 $punct = "', '";
                                 $end = "')";
-                                //last edie was removing ' from before parenthesis
+                                //last edit was removing ' from before parenthesis
 
                                 //INSERT SQL ONLY-->If it isnt the last item, add a comma to it.
                                 if($a < count($class_selected)-1 && !($exist_result->num_rows > 0))
@@ -145,6 +145,9 @@
                 
                 //PROBLEM IN THIS QUERY
                 $result = $conn->query($main_sql);
+
+                //TL
+                //var_dump($main_sql);
 
                 //Show table
                 if($result){
